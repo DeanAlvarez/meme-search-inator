@@ -6,10 +6,13 @@
   </head>
   <body>
     <div class="sidenav">
-    <a href="#">Link</a>
-    <a href="#">Link</a>
-    <a href="#">Link</a>
-  </div>
+      {% if logged_in %}
+        <a href="{{signout_url}}">Sign Out</a>
+      {% else %}
+        <a href="{{login_url}}">Login</a>
+        <a href="{{register_url}}">Register</a>
+      {% endif %}
+    </div>
 
   <div class= "body"
 
