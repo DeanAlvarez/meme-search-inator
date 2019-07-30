@@ -24,7 +24,7 @@ class HomePage(webapp2.RequestHandler):
         data["logged_in"] = False
         data["login_url"] = users.create_login_url('/')
         data["register_url"] = users.create_login_url('/Registration')
-
+        
     home_template = the_jinja_env.get_template('templates/HomePage.html')
     self.response.write(HomePage_template.render(data))  # the response
 
