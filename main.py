@@ -32,9 +32,9 @@ class BlogPage(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Results', ResultsPage),
-    ('/CreateAccount',),
-    ('/Login',),
-    ('/Logout',),
-    ('/Messages', ),
-    ('/Blog', )
+    ('/CreateAccount',CreateAccount),
+    ('/Login', LoginPage),
+    ('/Logout', LogoutPage),
+    ('/Messages', MessagePage),
+    ('/Blog', BlogPage)
 ], debug=True)
