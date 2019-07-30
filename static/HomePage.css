@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -38,4 +39,8 @@ body {
 .content {
   margin-left: 200px;
   padding-left: 20px;
+}
+
+h2{
+  color: blue; 
 }
