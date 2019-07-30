@@ -10,10 +10,11 @@
       <h1>MEME INATOR </h1>
     </div>
     <div class="sidenav">
-      <p>CHOOSE WISELY</p>
       {% if logged_in %}
+        <p>Hi, {{name}}</p>
         <a href="{{signout_url}}">Sign Out</a>
       {% else %}
+        <p>CHOOSE WISELY</p>
         <a href="{{login_url}}">Login</a>
         <a href="{{register_url}}">Register</a>
       {% endif %}
