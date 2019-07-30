@@ -4,14 +4,13 @@ threadsafe: true
 
 handlers:
 - url: /static
-  script: static
-
-- url: /.*
-  script: main.app
+  static_dir: static
 
 - url: /js
   script: js
 
+- url: /.*
+  script: main.app
 
 
 libraries:
