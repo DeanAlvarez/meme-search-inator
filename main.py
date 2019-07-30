@@ -14,19 +14,19 @@ class Member(ndb.Model):
   email = ndb.StringProperty()
 
 class HomePage(webapp2.RequestHandler):
-    def get(self):
-        user = users.get_current_user()
-        data = {}
-        if user:
-            data["logged_in"] = True
-            data["signout_url"] = users.create_logout_url('/')
-        else:
-            data["logged_in"] = False
-            data["login_url"] = users.create_login_url('/')
-            data["register_url"] = users.create_login_url('/Registration')
-
-        home_template = the_jinja_env.get_template('templates/HomePage.html')
-        self.response.write(HomePage_template.render(data))  # the response
+  def get(self):
+    user = users.get_current_user()
+    data = {}
+    if user:
+        data["logged_in"] = True
+        data["signout_url"] = users.create_logout_url('/')
+    else:
+        data["logged_in"] = False
+        data["login_url"] = users.create_login_url('/')
+        data["register_url"] = users.create_login_url('/Registration')
+        
+    home_template = the_jinja_env.get_template('templates/HomePage.html')
+    self.response.write(HomePage_template.render(data))  # the response
 
 class ResultsPage(webapp2.RequestHandler):
     pass
@@ -68,7 +68,7 @@ class BlogPage(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Results', ResultsPage),
-    ('/Registration',RegistrationPage),
+    ('/Registration', RegistrationPage),
     ('/Login',),
     ('/Logout',),
     ('/Messages', ),
