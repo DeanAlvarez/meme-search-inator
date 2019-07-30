@@ -5,20 +5,18 @@
     <title>MEME-SEARCH-INATOR</title>
     <link rel="stylesheet"  href="/static/HomePage.css">
   </head>
-  
-<body>
-
-<div class="sidenav">
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-</div>
-
-<div class="content">
-  <h2>MEME INATOR </h2>
-  <p>A full-height, fixed sidenav and content.</p>
-</div>
-
-
-</body>
+  <body>
+    <div class="sidenav">
+      {% if logged_in %}
+        <a href="{{signout_url}}">Sign Out</a>
+      {% else %}
+        <a href="{{login_url}}">Login</a>
+        <a href="{{register_url}}">Register</a>
+      {% endif %}
+    </div>
+    <div class="content">
+      <h2>MEME INATOR </h2>
+      <p>A full-height, fixed sidenav and content.</p>
+    </div>
+  </body>
 </html>
