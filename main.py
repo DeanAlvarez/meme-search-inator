@@ -8,7 +8,9 @@ the_jinja_env = jinja2.Environment(
     autoescape=True)
 
 class HomePage(webapp2.RequestHandler):
-    pass
+    def get(self):
+        home_page_template = the_jinja_env.get_template('templates/HomePage.html')
+        self.response.write(home_page_template.render())
 
 class ResultsPage(webapp2.RequestHandler):
     pass
