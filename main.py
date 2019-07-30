@@ -14,6 +14,7 @@ class Member(ndb.Model):
   email = ndb.StringProperty()
 
 class HomePage(webapp2.RequestHandler):
+  def get(self):
     user = users.get_current_user()
     data = {}
     if user:
@@ -67,7 +68,7 @@ class BlogPage(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Results', ResultsPage),
-    ('/Registration',RegistrationPage),
+    ('/Registration', RegistrationPage),
     ('/Login',),
     ('/Logout',),
     ('/Messages', ),
