@@ -24,16 +24,16 @@ class HomePage(webapp2.RequestHandler):
         data["logged_in"] = False
         data["login_url"] = users.create_login_url('/')
         data["register_url"] = users.create_login_url('/Registration')
-        
+
     home_template = the_jinja_env.get_template('templates/HomePage.html')
-    self.response.write(HomePage_template.render(data))  # the response
+    self.response.write(home_template.render(data))  # the response
 
 class ResultsPage(webapp2.RequestHandler):
     pass
 
 class RegistrationPage(webapp2.RequestHandler):
     def get(self):
-        registration_template = the_jinja_env.get_template('templates/registration.html')
+        registration_template = the_jinja_env.get_template('templates/RegistrationPage.html')
         self.response.write(registration_template.render())  # the response
 
     def post(self):
@@ -43,10 +43,11 @@ class RegistrationPage(webapp2.RequestHandler):
             display_name = self.request.get('display_name'),
             email = user.nickname())
         # Store that Entity in Datastore.
-        Member.put()
+        member.put()
         # Show confirmation to the new member. Include a link back to the index.
-        self.response.write('Thanks for signing up, %s! <br><a href="/">Home</a>' %
-            member.display_name)
+        # self.response.write('Thanks for signing up, %s! <br><a href="/">Home</a>' %
+        #     member.display_name)
+        return webapp2.redirect("/")
 
 class LoginPage(webapp2.RequestHandler):
     def get(self):
