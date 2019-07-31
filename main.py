@@ -81,5 +81,5 @@ app = webapp2.WSGIApplication([
     ('/Login',),
     ('/Logout',),
     ('/Messages', ),
-    ('/Blog', )
+    ('/Blog', BlogPage)
 ], debug=True)
