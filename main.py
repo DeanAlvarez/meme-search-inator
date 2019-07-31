@@ -22,10 +22,14 @@ class HomePage(webapp2.RequestHandler):
         data["logged_in"] = True
         data["signout_url"] = users.create_logout_url('/')
         user = users.get_current_user()
-        print(user.nickname())
         member_query = Member.query(Member.email == user.nickname())
         member = member_query.get()
-        data["name"] = member.display_name
+        if member is None:
+            data["logged_in"] = False
+            data["login_url"] = users.create_login_url('/')
+            data["register_url"] = users.create_login_url('/Registration')
+        else:
+            data["name"] = member.display_name
     else:
         data["logged_in"] = False
         data["login_url"] = users.create_login_url('/')
