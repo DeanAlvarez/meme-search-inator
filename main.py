@@ -20,6 +20,7 @@ class HomePage(webapp2.RequestHandler):
     if user:
         data["logged_in"] = True
         data["signout_url"] = users.create_logout_url('/')
+        # data["name"] = RegistrationPage.member.display_name
     else:
         data["logged_in"] = False
         data["login_url"] = users.create_login_url('/')
@@ -73,5 +74,5 @@ app = webapp2.WSGIApplication([
     ('/Login',),
     ('/Logout',),
     ('/Messages', ),
-    ('/Blog', )
+    ('/Blog', BlogPage)
 ], debug=True)
