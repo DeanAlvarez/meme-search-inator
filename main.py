@@ -1,6 +1,7 @@
 import webapp2
 import jinja2
 import os
+import time
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
@@ -20,6 +21,11 @@ class HomePage(webapp2.RequestHandler):
     if user:
         data["logged_in"] = True
         data["signout_url"] = users.create_logout_url('/')
+        user = users.get_current_user()
+        print(user.nickname())
+        member_query = Member.query(Member.email == user.nickname())
+        member = member_query.get()
+        data["name"] = member.display_name
     else:
         data["logged_in"] = False
         data["login_url"] = users.create_login_url('/')
@@ -44,9 +50,7 @@ class RegistrationPage(webapp2.RequestHandler):
             email = user.nickname())
         # Store that Entity in Datastore.
         member.put()
-        # Show confirmation to the new member. Include a link back to the index.
-        # self.response.write('Thanks for signing up, %s! <br><a href="/">Home</a>' %
-        #     member.display_name)
+        time.sleep(1)
         return webapp2.redirect("/")
 
 class LoginPage(webapp2.RequestHandler):
