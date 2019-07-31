@@ -8,7 +8,7 @@ body {
   font-family: courier;
   text-align: center;
 
-  background-image:url('https://im3.ezgif.com/tmp/ezgif-3-0f2223cf72cd.gif');
+  background-image:url('https://i1.wp.com/www.eyedesyn.com/wp-content/uploads/2019/04/blueprint.gif?zoom=2.625&fit=800%2C450&ssl=1');
   background-size:100%;
   background-repeat: repeat-y;
   background-attachment: fixed;
@@ -20,7 +20,7 @@ body {
 /* Style the side navigation */
 .sidenav {
   height: 100%;
-  width: 200px;
+  width: 250px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -52,4 +52,8 @@ body {
 
 h1{
   color: black;
+}
+
+p{
+  color: white;
 }
