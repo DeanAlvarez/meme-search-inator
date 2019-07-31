@@ -1,20 +1,67 @@
-
-* {
-  box-sizing: border-box;
-}
-
-body{
-  margin: 0;
-  font-family: courier;
-  text-align: center;
-}
-
-.sec1 {
-  background-image: url('https://66.media.tumblr.com/00cd74ea853edcd1597821cd87c193fd/tumblr_pooqvlJa5t1ts7m99_1280.png');
-  background-size:100%;
+body {
+  font-family: Arial;
+  padding: 20px;
+  background-image: url('https://cdn.vox-cdn.com/thumbor/s9GMHAEVRTGKN-0DlLqxCh7trzg=/0x0:1920x1080/1200x675/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/63256629/ply_best_memes_2019.0.jpg');
   background-attachment: fixed;
   height:50%;
   width:10%;
 }
 
-/*add options to post blog posts*? 
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
