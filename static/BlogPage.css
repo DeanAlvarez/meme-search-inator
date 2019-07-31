@@ -1,0 +1,20 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-family: courier;
+  text-align: center;
+}
+
+.sec1 {
+  background-image: url('https://66.media.tumblr.com/00cd74ea853edcd1597821cd87c193fd/tumblr_pooqvlJa5t1ts7m99_1280.png');
+  background-size:100%;
+  background-attachment: fixed;
+  height:50%;
+  width:10%;
+}
+
+/*add options to post blog posts*? 

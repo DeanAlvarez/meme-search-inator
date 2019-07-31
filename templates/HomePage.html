@@ -7,15 +7,17 @@
   </head>
   <body>
     <div class="content">
-      <h1>MEME INATOR </h1>
+      <h1>MEME SEARCH-INATOR </h1>
     </div>
     <div class="sidenav">
-      <p>CHOOSE WISELY</p>
+
       {% if logged_in %}
-        <a href="{{signout_url}}">Sign Out</a>
+        <p>Hi, {{name}}</p>
+        <a href="{{signout_url}}">SIGN OUT</a>
       {% else %}
-        <a href="{{login_url}}">Login</a>
-        <a href="{{register_url}}">Register</a>
+        <p>CHOOSE WISELY</p>
+        <a href="{{login_url}}">LOGIN</a>
+        <a href="{{register_url}}">REGISTER</a>
       {% endif %}
       <a href="#">SEARCH</a>
       <a href="#">MESSAGES</a>
