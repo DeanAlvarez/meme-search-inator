@@ -4,15 +4,13 @@ import os
 import time
 from google.appengine.api import users
 from google.appengine.ext import ndb
+from models import Member
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class Member(ndb.Model):
-  display_name = ndb.StringProperty()
-  email = ndb.StringProperty()
 
 class HomePage(webapp2.RequestHandler):
   def get(self):
