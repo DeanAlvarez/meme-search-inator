@@ -8,6 +8,8 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 from models import Member
 from models import Message
+from seed_data import seed_data
+from search import search
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -109,11 +111,26 @@ class MessagesJSON(webapp2.RequestHandler):
             data.append({"timestamp" : m.timestamp, "sender": m.sender, "message": m.message})
         self.response.out.write(json.dumps(data))
 
+class SeedData(webapp2.RequestHandler):
+    def get(self):
+        seed_data()
+        self.response.write("test")
+
+class qTest(webapp2.RequestHandler):
+    def get(self):
+        results = search('just eats monkey when your')
+        out = ''
+        for result in results:
+            out += ("<img src="+result+">")
+        self.response.write(out)
+
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Results', ResultsPage),
     ('/Registration', RegistrationPage),
     ('/Messages', MessagesPage),
     ('/Blog', BlogPage),
-    ('/MessagesJSON', MessagesJSON)
-], debug=True)
+    ('/MessagesJSON', MessagesJSON),
+    ('/SeedData', SeedData),
+    ('/q', qTest)
+    ], debug=True)

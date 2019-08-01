@@ -32,12 +32,12 @@ def seed_data():
     for tag in meme2_tags:
         if not tag in tags:
             tags[tag] = Tag(tag_name=tag).put()
-        temp_meme_tag = Meme_and_Tag(meme=meme1,tag=tags[tag]).put()
+        temp_meme_tag = Meme_and_Tag(meme=meme2,tag=tags[tag]).put()
 
 
-    meme3 = Meme(image_url=meme1_url).put()
+    meme3 = Meme(image_url=meme3_url).put()
     meme3_tag_objects = []
     for tag in meme3_tags:
         if not tag in tags:
             tags[tag] = Tag(tag_name=tag).put()
-        temp_meme_tag = Meme_and_Tag(meme=meme1,tag=tags[tag]).put()
+        temp_meme_tag = Meme_and_Tag(meme=meme3,tag=tags[tag]).put()
