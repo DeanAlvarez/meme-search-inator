@@ -7,7 +7,6 @@ body {
   margin: 0;
   font-family: courier;
   text-align: center;
-
   background-image:url('https://i1.wp.com/www.eyedesyn.com/wp-content/uploads/2019/04/blueprint.gif?zoom=2.625&fit=800%2C450&ssl=1');
   background-size:100%;
   background-repeat: repeat-y;
@@ -16,44 +15,11 @@ body {
   width:100%;
 }
 
-
-/* Style the side navigation */
-.sidenav {
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-}
-
-
-/* Side navigation links */
-.sidenav a {
-  color: white;
-  padding: 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color on hover */
-.sidenav a:hover {
-  background-color: #ddd;
-  color: black;
+h1{
+  font-size: 500%
 }
 
 /* Style the content */
 .content {
-  margin-left: 200px;
-  padding-left: 20px;
-}
-
-h1{
-  color: black;
-}
-
-p{
-  color: white;
+  margin-left: 15%;
 }

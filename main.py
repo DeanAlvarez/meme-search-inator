@@ -71,15 +71,26 @@ class MessagePage(webapp2.RequestHandler):
     pass
 
 class BlogPage(webapp2.RequestHandler):
-    pass
-
+    def get(self):
+        blog_template = the_jinja_env.get_template('templates/BlogPage.html')
+        self.response.write(blog_template.render())
+class AboutPage(webapp2.RequestHandler):
+    def get(self):
+        about_template = the_jinja_env.get_template('templates/AboutPage.html')
+        self.response.write(about_template.render())
+class HowPage(webapp2.RequestHandler):
+    def get(self):
+        how_template = the_jinja_env.get_template('templates/HowPage.html')
+        self.response.write(how_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Results', ResultsPage),
     ('/Registration', RegistrationPage),
-    ('/Login',),
-    ('/Logout',),
-    ('/Messages', ),
-    ('/Blog', BlogPage)
+    ('/Login', LoginPage ),
+    ('/Logout', LogoutPage ),
+    ('/Messages', MessagePage),
+    ('/Blog', BlogPage),
+    ('/About', AboutPage),
+    ('/How', HowPage)
 ], debug=True)
