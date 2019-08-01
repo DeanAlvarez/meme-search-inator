@@ -3,9 +3,11 @@ import jinja2
 import os
 import time
 import datetime
+import json
 from google.appengine.api import users
 from google.appengine.ext import ndb
 from models import Member
+from models import Message
 from seed_data import seed_data
 from search import search
 
@@ -100,6 +102,15 @@ class MessagesPage(webapp2.RequestHandler):
 class BlogPage(webapp2.RequestHandler):
     pass
 
+class MessagesJSON(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'application/json'
+        query = Message.query().order(Message.timestamp)
+        data = []
+        for m in query:
+            data.append({"timestamp" : m.timestamp, "sender": m.sender, "message": m.message})
+        self.response.out.write(json.dumps(data))
+
 class SeedData(webapp2.RequestHandler):
     def get(self):
         seed_data()
@@ -117,12 +128,9 @@ app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Results', ResultsPage),
     ('/Registration', RegistrationPage),
-
-    ('/Login',LoginPage),
-    ('/Logout',LogoutPage),
-    ('/Messages',MessagePage),
+    ('/Messages', MessagesPage),
     ('/Blog', BlogPage),
-    ('/SeedData',SeedData),
-    ('/q',qTest)
+    ('/MessagesJSON', MessagesJSON),
+    ('/SeedData', SeedData),
+    ('/q', qTest)
     ], debug=True)
-
