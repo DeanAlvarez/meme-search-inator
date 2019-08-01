@@ -49,10 +49,10 @@ class ResultsPage(webapp2.RequestHandler):
         user_query = self.request.get('search')
         user_query = user_query.lower()
         results = search(user_query)
-        out = ''
-        for result in results:
-            out += ("<img src="+result+">")
-        self.response.write(out)
+        site_data = {}
+        site_data["results"] = results
+        ResultsPage_template = the_jinja_env.get_template('templates/ResultsPage.html')
+        self.response.write(ResultsPage_template.render(site_data))
 
 class RegistrationPage(webapp2.RequestHandler):
     def get(self):
