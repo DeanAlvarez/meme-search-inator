@@ -110,6 +110,15 @@ class MessagesPage(webapp2.RequestHandler):
         time.sleep(1)
         return webapp2.redirect("/Messages")
 
+class MessagesJSON(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'application/json'
+        message_query = Message.query().order(Message.timestamp)
+        messages = []
+        for message in message_query.fetch():
+            messages.append(message.to_dict())
+        self.response.write(json.dumps(messages))
+
 class BlogPage(webapp2.RequestHandler):
     def get(self):
         blog_template = the_jinja_env.get_template('templates/BlogPage.html')

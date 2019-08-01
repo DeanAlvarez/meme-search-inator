@@ -1,6 +1,4 @@
 from google.appengine.api import images
-import ujson 
-from PIL import Image
 from models import Meme,Tag,Meme_and_Tag
 import sys
 
@@ -17,7 +15,7 @@ def seed_data():
     #dog meme
     meme1_tags = ['when','your','dog','eats','your','philosophy','homework','sunset','beach']
     meme1_url = 'https://pics.me.me/when-your-dog-eats-your-philosophy-homework-36107763.png'
-    
+
     meme2_tags = ['dj','djs',"aren't",'real','musicians','they','just','push','buttons','pianist','monkey','looking','away']
     meme2_url = 'https://preview.redd.it/yezsyiqj3h731.jpg?width=640&crop=smart&auto=webp&s=dfe3abc581c0f0b2270e51f21090a8b9271344c1'
 
@@ -49,7 +47,7 @@ def seed_data():
 
     all_tags = {}
     upload_memes(meme1_tags,meme1_url,all_tags)
-    upload_memes(meme2_tags,meme2_url,all_tags)    
+    upload_memes(meme2_tags,meme2_url,all_tags)
     upload_memes(meme3_tags,meme3_url,all_tags)
     upload_memes(meme4_tags,meme4_url,all_tags)
     upload_memes(meme5_tags,meme5_url,all_tags)

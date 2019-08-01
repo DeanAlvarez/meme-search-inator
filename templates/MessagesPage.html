@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MEME-SEARCH-INATOR</title>
+    <link rel="stylesheet"  href="/static/MessagesPage.css">
+    <script src="/static/messages.js" async></script>
+  </head>
+  <body>
+    <div class="sidenav">
+      {% if logged_in %}
+        <p>Hi, {{name}}</p>
+        <a href="{{signout_url}}">SIGN OUT</a>
+      {% else %}
+        <p>CHOOSE WISELY</p>
+        <a href="{{login_url}}">LOGIN</a>
+        <a href="{{register_url}}">REGISTER</a>
+      {% endif %}
+      <a href="#">SEARCH</a>
+      <a href="/Messages">MESSAGES</a>
+      <a href="/Blog">BLOG</a>
+    </div>
+    {% if logged_in %}
+    Message your fellow members below!<br><br>
+    <span id="forLoop">
+      {% for message_info in message_list %}
+        {{message_info.timestamp}} | <b>{{message_info.sender}}</b>: {{message_info.message}} <br>
+      {% endfor %}
+    </span>
+
+      <form method="post" action="/Messages">
+        <input type="text" name="message" placeholder="Message">
+        <input type="submit" placeholder="Send">
+      </form>
+    {% else %}
+      You must be logged in as a member to send and see messages.
+    {% endif %}
+  </body>
+</html>
