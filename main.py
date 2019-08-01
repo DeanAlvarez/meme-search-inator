@@ -100,7 +100,9 @@ class MessagesPage(webapp2.RequestHandler):
         return webapp2.redirect("/Messages")
 
 class BlogPage(webapp2.RequestHandler):
-    pass
+    def get(self):
+        blog_template = the_jinja_env.get_template('templates/BlogPage.html')
+        self.response.write(blog_template.render())  # the response
 
 class MessagesJSON(webapp2.RequestHandler):
     def get(self):
