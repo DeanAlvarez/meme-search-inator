@@ -5,7 +5,7 @@ import time
 import datetime
 from google.appengine.api import users
 from google.appengine.ext import ndb
-from models import Member
+from models import Member , Message
 from seed_data import seed_data
 from search import search
 
@@ -107,7 +107,7 @@ class SeedData(webapp2.RequestHandler):
 
 class qTest(webapp2.RequestHandler):
     def get(self):
-        results = search('just eats monkey when your')
+        results = search("when your dog eats your homerwork sunset")
         out = ''
         for result in results:
             out += ("<img src="+result+">")
@@ -117,10 +117,8 @@ app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Results', ResultsPage),
     ('/Registration', RegistrationPage),
-
     ('/Login',LoginPage),
-    ('/Logout',LogoutPage),
-    ('/Messages',MessagePage),
+    ('/Messages',MessagesPage),
     ('/Blog', BlogPage),
     ('/SeedData',SeedData),
     ('/q',qTest)
