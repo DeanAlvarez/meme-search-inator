@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>MEME-SEARCH-INATOR</title>
     <link rel="stylesheet"  href="/static/MessagesPage.css">
+    <script src="/static/messages.js" async></script>
   </head>
   <body>
     <div class="sidenav">
@@ -34,19 +35,5 @@
     {% else %}
       You must be logged in as a member to send and see messages.
     {% endif %}
-
-
-    <script>
-      function loadDoc() {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("forLoop").innerHTML = this.responseText;
-        }
-      };
-      xhttp.open("GET", "demo_get.asp", true);
-      xhttp.send();
-      }
-    </script>
   </body>
 </html>
