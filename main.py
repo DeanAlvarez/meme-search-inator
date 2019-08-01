@@ -45,7 +45,14 @@ class SearchPage(webapp2.RequestHandler):
         self.response.write(SearchPage_template.render())
 
 class ResultsPage(webapp2.RequestHandler):
-    pass
+    def post(self):
+        user_query = self.request.get('search')
+        user_query = user_query.lower()
+        results = search(user_query)
+        out = ''
+        for result in results:
+            out += ("<img src="+result+">")
+        self.response.write(out)
 
 class RegistrationPage(webapp2.RequestHandler):
     def get(self):
