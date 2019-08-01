@@ -6,17 +6,13 @@ import datetime
 from google.appengine.api import users
 from google.appengine.ext import ndb
 from models import Member
+from seed_data import seed_data
+from search import search
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
-
-
-class Message(ndb.Model):
-    timestamp = ndb.StringProperty()
-    sender = ndb.StringProperty()
-    message = ndb.StringProperty()
 
 class HomePage(webapp2.RequestHandler):
   def get(self):
@@ -104,11 +100,29 @@ class MessagesPage(webapp2.RequestHandler):
 class BlogPage(webapp2.RequestHandler):
     pass
 
+class SeedData(webapp2.RequestHandler):
+    def get(self):
+        seed_data()
+        self.response.write("test")
+
+class qTest(webapp2.RequestHandler):
+    def get(self):
+        results = search('just eats monkey when your')
+        out = ''
+        for result in results:
+            out += ("<img src="+result+">")
+        self.response.write(out)
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Results', ResultsPage),
     ('/Registration', RegistrationPage),
-    ('/Messages', MessagesPage),
-    ('/Blog', BlogPage)
-], debug=True)
+
+    ('/Login',LoginPage),
+    ('/Logout',LogoutPage),
+    ('/Messages',MessagePage),
+    ('/Blog', BlogPage),
+    ('/SeedData',SeedData),
+    ('/q',qTest)
+    ], debug=True)
+
