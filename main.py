@@ -3,20 +3,16 @@ import jinja2
 import os
 import time
 import datetime
+import json
 from google.appengine.api import users
 from google.appengine.ext import ndb
 from models import Member
+from models import Message
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
-
-
-class Message(ndb.Model):
-    timestamp = ndb.StringProperty()
-    sender = ndb.StringProperty()
-    message = ndb.StringProperty()
 
 class HomePage(webapp2.RequestHandler):
   def get(self):
@@ -104,11 +100,20 @@ class MessagesPage(webapp2.RequestHandler):
 class BlogPage(webapp2.RequestHandler):
     pass
 
+class MessagesJSON(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'application/json'
+        query = Message.query().order(Message.timestamp)
+        data = []
+        for m in query:
+            data.append({"timestamp" : m.timestamp, "sender": m.sender, "message": m.message})
+        self.response.out.write(json.dumps(data))
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Results', ResultsPage),
     ('/Registration', RegistrationPage),
     ('/Messages', MessagesPage),
-    ('/Blog', BlogPage)
+    ('/Blog', BlogPage),
+    ('/MessagesJSON', MessagesJSON)
 ], debug=True)
