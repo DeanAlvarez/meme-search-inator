@@ -6,18 +6,14 @@ import datetime
 import json
 from google.appengine.api import users
 from google.appengine.ext import ndb
-from models import Member
+from models import Member , Message
+from seed_data import seed_data
+from search import search
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
-
-
-class Message(ndb.Model):
-    timestamp = ndb.StringProperty()
-    sender = ndb.StringProperty()
-    message = ndb.StringProperty()
 
 class HomePage(webapp2.RequestHandler):
   def get(self):
@@ -43,8 +39,20 @@ class HomePage(webapp2.RequestHandler):
     home_template = the_jinja_env.get_template('templates/HomePage.html')
     self.response.write(home_template.render(data))  # the response
 
+class SearchPage(webapp2.RequestHandler):
+    def get(self):
+        SearchPage_template = the_jinja_env.get_template('templates/SearchPage.html')
+        self.response.write(SearchPage_template.render())
+
 class ResultsPage(webapp2.RequestHandler):
-    pass
+    def post(self):
+        user_query = self.request.get('search')
+        user_query = user_query.lower()
+        results = search(user_query)
+        site_data = {}
+        site_data["results"] = results
+        ResultsPage_template = the_jinja_env.get_template('templates/ResultsPage.html')
+        self.response.write(ResultsPage_template.render(site_data))
 
 class RegistrationPage(webapp2.RequestHandler):
     def get(self):
@@ -112,14 +120,40 @@ class MessagesJSON(webapp2.RequestHandler):
         self.response.write(json.dumps(messages))
 
 class BlogPage(webapp2.RequestHandler):
-    pass
+    def get(self):
+        blog_template = the_jinja_env.get_template('templates/BlogPage.html')
+        self.response.write(blog_template.render())  # the response
 
+class MessagesJSON(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'application/json'
+        query = Message.query().order(Message.timestamp)
+        data = []
+        for m in query:
+            data.append({"timestamp" : m.timestamp, "sender": m.sender, "message": m.message})
+        self.response.out.write(json.dumps(data))
+
+class SeedData(webapp2.RequestHandler):
+    def get(self):
+        seed_data()
+        self.response.write("test")
+
+class qTest(webapp2.RequestHandler):
+    def get(self):
+        results = search("pianist monkey looking away")
+        out = ''
+        for result in results:
+            out += ("<img src="+result+">")
+        self.response.write(out)
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
+    ('/Search', SearchPage),
     ('/Results', ResultsPage),
     ('/Registration', RegistrationPage),
     ('/Messages', MessagesPage),
+    ('/Blog', BlogPage),
     ('/MessagesJSON', MessagesJSON),
-    ('/Blog', BlogPage)
-], debug=True)
+    ('/SeedData', SeedData),
+    ('/q', qTest)
+    ], debug=True)

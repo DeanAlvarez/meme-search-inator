@@ -13,3 +13,8 @@ class Meme_and_Tag(ndb.Model):
 class Member(ndb.Model):
     display_name = ndb.StringProperty()
     email = ndb.StringProperty()
+
+class Message(ndb.Model):
+    timestamp = ndb.StringProperty()
+    sender = ndb.StringProperty()
+    message = ndb.StringProperty()
