@@ -38,6 +38,11 @@ class HomePage(webapp2.RequestHandler):
     home_template = the_jinja_env.get_template('templates/HomePage.html')
     self.response.write(home_template.render(data))  # the response
 
+class SearchPage(webapp2.RequestHandler):
+    def get(self):
+        SearchPage_template = the_jinja_env.get_template('templates/SearchPage.html')
+        self.response.write(SearchPage_template.render())
+
 class ResultsPage(webapp2.RequestHandler):
     pass
 
@@ -107,7 +112,7 @@ class SeedData(webapp2.RequestHandler):
 
 class qTest(webapp2.RequestHandler):
     def get(self):
-        results = search("when your dog eats your homerwork sunset")
+        results = search("pianist monkey looking away")
         out = ''
         for result in results:
             out += ("<img src="+result+">")
@@ -115,6 +120,7 @@ class qTest(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
+    ('/Search', SearchPage),
     ('/Results', ResultsPage),
     ('/Registration', RegistrationPage),
     ('/Login',LoginPage),
