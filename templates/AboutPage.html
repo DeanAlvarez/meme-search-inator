@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MEME SEARCH-INATOR: ABOUT US</title>
+    <link rel="stylesheet"  href="/static/AboutPage.css">
+    <link rel="stylesheet" href="/static/sidenav.css">
+  </head>
+  <body>
+    <div class="sidenav">
+      {% if logged_in %}
+        <p> HI, {{name}} </p>
+        <a href="{{signout_url}}">SIGN OUT</a>
+      {% else %}
+        <p>CHOOSE WISELY</p>
+        <a href="{{login_url}}">LOGIN</a>
+        <a href="{{register_url}}">REGISTER</a>
+      {% endif %}
+      <a href="#">MESSAGES</a>
+      <a href="#">BLOG</a>
+      <a href="#">ABOUT US</a>
+      <a href="#">HOW WE DID IT</a>
+    </div>
+
+    <div class="header">
+      <h2>THIS IS US</h2>
+    </div>
+
+    <img src="https://i.chzbgr.com/full/9320456192/h884B80FF/" alt=""></img>
+
+    <div class="aboutUs">
+      <h2></h2>
+      <!-- PIC OF US<div class="fakeimg" style="height:100px;">Image</div>-->
+      <p>Dean, April, and Amara are just six memers who want to share
+          thier love of memes with the rest of the world. They enjoy lOnG
+          wALkS tO tHE fRiDGe, doges, and The Office. And Coding.</p>
+    </div>
+
+    <div class="follow">
+      <b><h1>YOU SHOULD FOLLOW US</h1></b>
+      <p>APRIL: @aprildottincarter </p>
+      <p>AMARA: @amarachimez </p>
+      <p>DEAN: *literally only has LinkedIN* </p>
+    </div>
+
+  </body>
+</html>
