@@ -1,0 +1,12 @@
+body{
+  background-image:url('http://vector.childrenshospital.org/wp-content/uploads/2016/02/blueprint-shutterstock-cropped.jpg');
+  background-size:100%;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  height:100%;
+  width:100%;
+}
+
+img{
+
+}
