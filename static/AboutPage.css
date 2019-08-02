@@ -1,0 +1,44 @@
+body {
+  font-family: courier;
+  padding: 20%;
+  background-image: url('https://cdn.pixabay.com/photo/2019/03/14/22/12/blueprint-4056027_960_720.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.header {
+  padding: .75%;
+  width: 125%;
+  font-size: 275%;
+  text-align: center;
+  outline-style: double;
+  padding: 1%;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
+  width: 125%;
+}
+
+
+.aboutUs
+{
+  background-color: rgba(112, 27, 47, .5);
+  text-align: center;
+  padding: 1%;
+  width: 125%;
+  margin-top: 1%;);
+}
+
+.follow {
+  background-color: rgba(229, 189, 97, .5);
+  text-align: center;
+  padding: 1.5%;
+  margin-top: 1.5%;
+  width: 125%;
+}

@@ -122,8 +122,16 @@ class MessagesJSON(webapp2.RequestHandler):
 class BlogPage(webapp2.RequestHandler):
     def get(self):
         blog_template = the_jinja_env.get_template('templates/BlogPage.html')
-        self.response.write(blog_template.render())  # the response
-
+        self.response.write(blog_template.render())
+class AboutPage(webapp2.RequestHandler):
+    def get(self):
+        about_template = the_jinja_env.get_template('templates/AboutPage.html')
+        self.response.write(about_template.render())
+class HowPage(webapp2.RequestHandler):
+    def get(self):
+        how_template = the_jinja_env.get_template('templates/HowPage.html')
+        self.response.write(how_template.render())
+                =======
 class MessagesJSON(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'application/json'
@@ -145,7 +153,6 @@ class qTest(webapp2.RequestHandler):
         for result in results:
             out += ("<img src="+result+">")
         self.response.write(out)
-
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Search', SearchPage),
@@ -153,6 +160,8 @@ app = webapp2.WSGIApplication([
     ('/Registration', RegistrationPage),
     ('/Messages', MessagesPage),
     ('/Blog', BlogPage),
+    ('/About', AboutPage),
+    ('/How', HowPage),
     ('/MessagesJSON', MessagesJSON),
     ('/SeedData', SeedData),
     ('/q', qTest)
