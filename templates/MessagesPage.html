@@ -6,10 +6,10 @@
     <link rel="stylesheet"  href="/static/MessagesPage.css">
     <script src="/static/messages.js" async></script>
   </head>
-  <body style="background = black;">
-    <div class="sidenav">
+  <body>
+    <div class = "sidenav">
       {% if logged_in %}
-        <p>HI, {{name}}</p>
+        <p> HI, {{name}} </p>
         <a href="{{signout_url}}">SIGN OUT</a>
       {% else %}
         <p>CHOOSE WISELY</p>

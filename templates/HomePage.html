@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/static/sidenav.css">
   </head>
   <body>
-    <div class="sidenav">
+
+    <div class = "sidenav">
       {% if logged_in %}
         <p> HI, {{name}} </p>
         <a href="{{signout_url}}">SIGN OUT</a>
@@ -22,6 +23,7 @@
       <a href="/About">ABOUT US</a>
       <a href="/How">HOW WE DID IT</a>
     </div>
+
     <div class="content">
       <h1>MEME SEARCH-INATOR</h1>
     </div>
