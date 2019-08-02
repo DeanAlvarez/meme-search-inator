@@ -80,9 +80,9 @@ class MessagesPage(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         data = {}
-        if user:
-            member_query = Member.query(Member.email == user.nickname())
-            member = member_query.get()
+        member_query = Member.query(Member.email == user.nickname())
+        member = member_query.get()
+        if member:
             data["logged_in"] = True
             data["message_list"] = Message.query().order(Message.timestamp)
             data["signout_url"] = users.create_logout_url('/')

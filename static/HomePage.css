@@ -14,8 +14,18 @@ body {
   height:100%;
   width:100%;
 }
-
-
+form {
+  padding-left: 20vw;
+  padding-top: 40vh;
+}
+#searchInput {
+  width: 50vw;
+  height: 10vh;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 5vw;
+}
 /* Style the side navigation */
 .sidenav {
   height: 100%;

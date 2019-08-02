@@ -6,7 +6,7 @@
     <link rel="stylesheet"  href="/static/MessagesPage.css">
     <script src="/static/messages.js" async></script>
   </head>
-  <body>
+  <body style="background = black;">
     <div class="sidenav">
       {% if logged_in %}
         <p>Hi, {{name}}</p>
@@ -16,24 +16,25 @@
         <a href="{{login_url}}">LOGIN</a>
         <a href="{{register_url}}">REGISTER</a>
       {% endif %}
-      <a href="#">SEARCH</a>
+      <a href="/Search">SEARCH</a>
       <a href="/Messages">MESSAGES</a>
       <a href="/Blog">BLOG</a>
     </div>
-    {% if logged_in %}
-    Message your fellow members below!<br><br>
-    <span id="forLoop">
-      {% for message_info in message_list %}
-        {{message_info.timestamp}} | <b>{{message_info.sender}}</b>: {{message_info.message}} <br>
-      {% endfor %}
-    </span>
-
-      <form method="post" action="/Messages">
-        <input type="text" name="message" placeholder="Message">
-        <input type="submit" placeholder="Send">
-      </form>
-    {% else %}
-      You must be logged in as a member to send and see messages.
-    {% endif %}
+      {% if logged_in %}
+      <div class="nonNavElements">
+        <h1>Message your fellow members below!</h1><br><br>
+        <span id="forLoop">
+          {% for message_info in message_list %}
+            <b>{{message_info.timestamp}} | {{message_info.sender}}</b>: {{message_info.message}} <br><br>
+          {% endfor %}
+        </span>
+        <form method="post" action="/Messages">
+          <input type="text" name="message" placeholder="Message" id="messageInput">
+          <input type="submit" placeholder="Send">
+        </form>
+      </div>
+      {% else %}
+        <h1>You must be logged in as a member to send and see messages.</h1>
+      {% endif %}
   </body>
 </html>
