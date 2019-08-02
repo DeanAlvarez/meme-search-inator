@@ -1,6 +1,6 @@
 body {
   font-family: courier;
-  padding: 20%;
+  padding-left: 20%;
   background-image: url('https://i.imgflip.com/2ad2k8.jpg');
   background-attachment: fixed;
   background-size: cover;
@@ -8,6 +8,10 @@ body {
   background-repeat: no-repeat;
   height:50%;
   width:95%;
+}
+
+p {
+  color: grey;
 }
 
 .sidenav {
@@ -28,10 +32,11 @@ body {
   text-align: center;
   outline-style: double;
   padding: 1%;
+  background-color: rgba(255, 255, 255, .75);
 }
 
 .posts{
-  background-color: rgba(225, 225, 225, .5);
+  background-color: rgba(255,255,255, .5);
   padding: 1%;
   width: 81%;
   font-size: 125%;
@@ -43,7 +48,6 @@ body {
   background-image: url('https://cdn.pixabay.com/photo/2019/03/14/22/12/blueprint-4056027_960_720.jpg');
   opacity: .75;
   text-align: center;
-  /*background-color: rgba(48, 49, 78, .5);*/
   margin-top: 1%;
   width: 81%;
 }
