@@ -41,6 +41,24 @@ class HomePage(webapp2.RequestHandler):
 
 class SearchPage(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
+        data = {}
+        if user:
+            data["logged_in"] = True
+            data["signout_url"] = users.create_logout_url('/')
+            user = users.get_current_user()
+            member_query = Member.query(Member.email == user.nickname())
+            member = member_query.get()
+            if member is None:
+                data["logged_in"] = False
+                data["login_url"] = users.create_login_url('/')
+                data["register_url"] = users.create_login_url('/Registration')
+            else:
+                data["name"] = member.display_name
+        else:
+            data["logged_in"] = False
+            data["login_url"] = users.create_login_url('/')
+            data["register_url"] = users.create_login_url('/Registration')
         SearchPage_template = the_jinja_env.get_template('templates/SearchPage.html')
         self.response.write(SearchPage_template.render())
 
@@ -121,16 +139,72 @@ class MessagesJSON(webapp2.RequestHandler):
 
 class BlogPage(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
+        data = {}
+        if user:
+            data["logged_in"] = True
+            data["signout_url"] = users.create_logout_url('/')
+            user = users.get_current_user()
+            member_query = Member.query(Member.email == user.nickname())
+            member = member_query.get()
+            if member is None:
+                data["logged_in"] = False
+                data["login_url"] = users.create_login_url('/')
+                data["register_url"] = users.create_login_url('/Registration')
+            else:
+                data["name"] = member.display_name
+        else:
+            data["logged_in"] = False
+            data["login_url"] = users.create_login_url('/')
+            data["register_url"] = users.create_login_url('/Registration')
         blog_template = the_jinja_env.get_template('templates/BlogPage.html')
-        self.response.write(blog_template.render())
+        self.response.write(blog_template.render(data))
+
 class AboutPage(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
+        data = {}
+        if user:
+            data["logged_in"] = True
+            data["signout_url"] = users.create_logout_url('/')
+            user = users.get_current_user()
+            member_query = Member.query(Member.email == user.nickname())
+            member = member_query.get()
+            if member is None:
+                data["logged_in"] = False
+                data["login_url"] = users.create_login_url('/')
+                data["register_url"] = users.create_login_url('/Registration')
+            else:
+                data["name"] = member.display_name
+        else:
+            data["logged_in"] = False
+            data["login_url"] = users.create_login_url('/')
+            data["register_url"] = users.create_login_url('/Registration')
         about_template = the_jinja_env.get_template('templates/AboutPage.html')
-        self.response.write(about_template.render())
+        self.response.write(about_template.render(data))
+
 class HowPage(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
+        data = {}
+        if user:
+            data["logged_in"] = True
+            data["signout_url"] = users.create_logout_url('/')
+            user = users.get_current_user()
+            member_query = Member.query(Member.email == user.nickname())
+            member = member_query.get()
+            if member is None:
+                data["logged_in"] = False
+                data["login_url"] = users.create_login_url('/')
+                data["register_url"] = users.create_login_url('/Registration')
+            else:
+                data["name"] = member.display_name
+        else:
+            data["logged_in"] = False
+            data["login_url"] = users.create_login_url('/')
+            data["register_url"] = users.create_login_url('/Registration')
         how_template = the_jinja_env.get_template('templates/HowPage.html')
-        self.response.write(how_template.render())
+        self.response.write(how_template.render(data))
 
 class MessagesJSON(webapp2.RequestHandler):
     def get(self):

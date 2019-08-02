@@ -14,10 +14,12 @@ body {
   height:100%;
   width:100%;
 }
+
 form {
   padding-left: 20vw;
   padding-top: 40vh;
 }
+
 #searchInput {
   width: 50vw;
   height: 10vh;
@@ -26,6 +28,7 @@ form {
   color: white;
   font-size: 5vw;
 }
+
 /* Style the side navigation */
 .sidenav {
   height: 100%;
@@ -37,7 +40,6 @@ form {
   background-color: #111;
   overflow-x: hidden;
 }
-
 
 /* Side navigation links */
 .sidenav a {
@@ -51,9 +53,9 @@ form {
 .sidenav a:hover {
   background-color: #ddd;
   color: black;
-
+}
 h1{
-  font-size: 500%
+  font-size: 500%;
 }
 
 /* Style the content */
