@@ -6,7 +6,7 @@
     <link rel="stylesheet"  href="/static/MessagesPage.css">
     <script src="/static/messages.js" async></script>
   </head>
-  <body style="background = black;">
+  <body>
     <div class="sidenav">
       {% if logged_in %}
         <p>HI, {{name}}</p>
@@ -31,12 +31,14 @@
           {% endfor %}
         </span>
         <form method="post" action="/Messages">
-          <input type="text" name="message" placeholder="Message" id="messageInput">
+          <input type="text" name="message" placeholder="Message" id="messageInput" autocomplete="off">
           <input type="submit" placeholder="Send">
         </form>
       </div>
       {% else %}
-        <h1>You must be logged in as a member to send and see messages.</h1>
+        <div class="nonNavElements">
+          <h1>You must be logged in as a member to send and see messages.</h1>
+        </div>
       {% endif %}
   </body>
 </html>
