@@ -45,6 +45,15 @@ def seed_data():
     meme10_tags = ['dad',"dosen't",'want','dog','family','gets','anyway','and','the','rock','dwayne','johnson','little','french','bulldog']
     meme10_url = 'https://i.kym-cdn.com/photos/images/newsfeed/001/523/527/9fb.jpg'
 
+    meme11_tags = ['let','a','equal','=','five','5','winnie','the','pooh']
+    meme11_url = 'https://preview.redd.it/nzk8844abud31.jpg?width=640&crop=smart&auto=webp&s=934bdada8713a4d7b433988076a0cf7cf5e4b222'
+
+    meme12_tags = ['me','makes','a','small','css','change','my','site','surprised','pikachu']
+    meme12_url = 'https://preview.redd.it/ig5u8ke5qo421.png?width=640&crop=smart&auto=webp&s=33134982ecc0149d7895808ee6ecca1413ef1a61'
+
+    meme13_tags = ['developers','at','the','beginning','of','a','project','vs','versus','end','harry','potter','crackhead','guns']
+    meme13_url = 'https://external-preview.redd.it/QwBEUJsg-0SmChi8V1DyCtk5ECUFViDcZya8m_xUCcA.jpg?width=640&crop=smart&auto=webp&s=8443fafcb161193c82f0aeae9098f3c18468aef9'
+
     all_tags = {}
     upload_memes(meme1_tags,meme1_url,all_tags)
     upload_memes(meme2_tags,meme2_url,all_tags)
@@ -56,3 +65,6 @@ def seed_data():
     upload_memes(meme8_tags,meme8_url,all_tags)
     upload_memes(meme9_tags,meme9_url,all_tags)
     upload_memes(meme10_tags,meme10_url,all_tags)
+    upload_memes(meme11_tags,meme11_url,all_tags)
+    upload_memes(meme12_tags,meme12_url,all_tags)
+    upload_memes(meme13_tags,meme13_url,all_tags)
