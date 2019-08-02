@@ -42,3 +42,9 @@ img{
   margin-top: 1.5%;
   width: 125%;
 }
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: #ddd;
+  color: black;
+}
