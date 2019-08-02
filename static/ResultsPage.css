@@ -1,12 +1,34 @@
-body{
-  background-image:url('http://vector.childrenshospital.org/wp-content/uploads/2016/02/blueprint-shutterstock-cropped.jpg');
+img{
+  width: 75%;
+  height: 95%;
+  padding: 2%;
+  vertical-align: middle;
+}
+
+body {
+  margin: 0;
+  font-family: courier;
+  text-align: center;
+  background-image:url('https://blogs.gartner.com/smarterwithgartner/files/2016/05/Blueprint_header.jpg');
   background-size:100%;
   background-repeat: repeat-y;
   background-attachment: fixed;
   height:100%;
   width:100%;
 }
-
-img{
-
+.sidenav {
+  height: 100%;
+  width: 10%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+.sidenav a {
+  color: white;
+  font-size: 250%;
+  padding: 10%;
+  text-decoration: none;
+  display: block;
 }
