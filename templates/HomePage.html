@@ -17,7 +17,7 @@
         <a href="{{login_url}}">LOGIN</a>
         <a href="{{register_url}}">REGISTER</a>
       {% endif %}
-      <a href="/Search">SEARCH</a>
+      <a href="/">SEARCH</a>
       <a href="/Messages">MESSAGES</a>
       <a href="/Blog">BLOG</a>
       <a href="/About">ABOUT US</a>
@@ -27,5 +27,10 @@
     <div class="content">
       <h1>MEME SEARCH-INATOR</h1>
     </div>
+        <form method=post action="/Results">
+            <input type="text" name="search" id="searchInput"><br><br>
+            <input type="submit" value="submit">
+        </form>
+    </body>
   </body>
 </html>

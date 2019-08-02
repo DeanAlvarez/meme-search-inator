@@ -3,9 +3,9 @@ async function getMessages() {
   var messagesjson=await newMessages.json();
   var messagesstring = "";
   for(var i=0; i<messagesjson.length; i++) {
-    messagesstring += messagesjson[i].timestamp + " | <b>" +
+    messagesstring += "<b>" + messagesjson[i].timestamp + " | " +
                       messagesjson[i].sender+ "</b>: " +
-                      messagesjson[i].message + "<br>";
+                      messagesjson[i].message + "<br><br>";
   }
   document.getElementById("forLoop").innerHTML = messagesstring;
 }

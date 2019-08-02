@@ -15,8 +15,47 @@ body {
   width:100%;
 }
 
+form {
+  padding-left: 20vw;
+  padding-top: 40vh;
+}
+
+#searchInput {
+  width: 50vw;
+  height: 10vh;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 5vw;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+}
+
+/* Side navigation links */
+.sidenav a {
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: #ddd;
+  color: black;
+}
 h1{
-  font-size: 500%
+  font-size: 500%;
 }
 
 /* Style the content */
