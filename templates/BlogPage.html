@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -8,25 +9,28 @@
   </head>
   <body>
 
-  <div class="sidenav">
-    {% if logged_in %}
-      <p> HI, {{name}} </p>
-      <a href="{{signout_url}}">SIGN OUT</a>
-    {% else %}
-      <p>CHOOSE WISELY</p>
-      <a href="{{login_url}}">LOGIN</a>
-      <a href="{{register_url}}">REGISTER</a>
-    {% endif %}
-    <a href="#">MESSAGES</a>
-    <a href="#">BLOG</a>
-    <a href="#">ABOUT US</a>
-    <a href="#">HOW WE DID IT</a>
-  </div>
+    <div class = "sidenav">
+      {% if logged_in %}
+        <p> HI, {{name}} </p>
+        <a href="{{signout_url}}">SIGN OUT</a>
+      {% else %}
+        <p>CHOOSE WISELY</p>
+        <a href="{{login_url}}">LOGIN</a>
+        <a href="{{register_url}}">REGISTER</a>
+      {% endif %}
+      <a href="/">HOME</a>
+      <a href="/Search">SEARCH</a>
+      <a href="/Messages">MESSAGES</a>
+      <a href="/Blog">BLOG</a>
+      <a href="/About">ABOUT US</a>
+      <a href="/How">HOW WE DID IT</a>
+    </div>
 
-<div class="header">
-  <h2>WHAT DO WE MEME?</h2>
-</div>
-<br>
+
+    <div class="header">
+      <h2>WHAT DO WE MEME?</h2>
+    </div> <br>
+
     <div class="posts">
       <div>
       <h2>WHAT MEMES MEAN TO US- DEAN</h2>
@@ -47,9 +51,9 @@
       </div>
     </div>
 
-<div class="footer">
-  <h2>NEVER BE MEMELESS</h2>
-</div>
+    <div class="footer">
+      <h2>NEVER BE MEMELESS</h2>
+    </div>
 
   </body>
 </html>

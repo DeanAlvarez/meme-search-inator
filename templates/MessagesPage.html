@@ -7,18 +7,21 @@
     <script src="/static/messages.js" async></script>
   </head>
   <body>
-    <div class="sidenav">
+    <div class = "sidenav">
       {% if logged_in %}
-        <p>Hi, {{name}}</p>
+        <p> HI, {{name}} </p>
         <a href="{{signout_url}}">SIGN OUT</a>
       {% else %}
         <p>CHOOSE WISELY</p>
         <a href="{{login_url}}">LOGIN</a>
         <a href="{{register_url}}">REGISTER</a>
       {% endif %}
-      <a href="#">SEARCH</a>
+      <a href="/">HOME</a>
+      <a href="/Search">SEARCH</a>
       <a href="/Messages">MESSAGES</a>
       <a href="/Blog">BLOG</a>
+      <a href="/About">ABOUT US</a>
+      <a href="/How">HOW WE DID IT</a>
     </div>
     {% if logged_in %}
     Message your fellow members below!<br><br>

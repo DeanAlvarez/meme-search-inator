@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/static/sidenav.css">
   </head>
   <body>
-    <div class="sidenav">
+    <div class = "sidenav">
       {% if logged_in %}
         <p> HI, {{name}} </p>
         <a href="{{signout_url}}">SIGN OUT</a>
@@ -16,10 +16,12 @@
         <a href="{{login_url}}">LOGIN</a>
         <a href="{{register_url}}">REGISTER</a>
       {% endif %}
-      <a href="#">MESSAGES</a>
-      <a href="#">BLOG</a>
-      <a href="#">ABOUT US</a>
-      <a href="#">HOW WE DID IT</a>
+      <a href="/">HOME</a>
+      <a href="/Search">SEARCH</a>
+      <a href="/Messages">MESSAGES</a>
+      <a href="/Blog">BLOG</a>
+      <a href="/About">ABOUT US</a>
+      <a href="/How">HOW WE DID IT</a>
     </div>
 
     <div class="header">

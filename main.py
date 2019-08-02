@@ -131,7 +131,6 @@ class HowPage(webapp2.RequestHandler):
     def get(self):
         how_template = the_jinja_env.get_template('templates/HowPage.html')
         self.response.write(how_template.render())
-                =======
 class MessagesJSON(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'application/json'
