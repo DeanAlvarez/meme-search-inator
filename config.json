@@ -1,0 +1,16 @@
+{
+    "database_file": "index/db/memes.db",
+    "image_index_file": "index/faiss/images.faiss",
+    "text_index_file": "index/faiss/text.faiss",
+    "embedding_model": "clip-ViT-B-32",
+    "search_params": {
+      "k_keyword": 20,
+      "k_vector": 20,
+      "max_results": 15,
+      "rrf_k": 60
+    },
+    "server": {
+        "host": "127.0.0.1",
+        "port": 5000
+    }
+  }
